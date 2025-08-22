@@ -37,12 +37,20 @@ export const addTransaction = async (txn: any) => {
   const response = await api.post("?action=addTransaction", txn);
   return response.data;
 };
-
 // ✅ Login user
 export const loginUser = async (data: { usernameOrEmail: string; password: string }) => {
-  const response = await api.post("?action=login", data);
-  return response.data;
+  try {
+    const response = await api.post("?action=login", data, {
+      headers: { "Content-Type": "application/json" }, // ✅ send JSON
+    });
+
+    return response.data;
+  } catch (error: any) {
+    console.error("Login API Error:", error.response?.data || error.message);
+    return { success: false, message: "Something went wrong" };
+  }
 };
+
 
 // ✅ Update transaction
 export const updateTransaction = async (txn: any) => {
