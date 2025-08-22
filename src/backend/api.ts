@@ -2,54 +2,56 @@ import axios from "axios";
 
 const BASE_URL = "https://ivory-dunlin-618889.hostingersite.com/invest/users.php";
 
+// ✅ Create axios instance with JSON encoding
+const api = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+});
 
-// https://ivory-dunlin-618889.hostingersite.com/
-
-
-// Get all users + transactions
+// ✅ Get all users
 export const getUsers = async () => {
-  const response = await axios.post(BASE_URL, { action: "getUsers" });
-  return response.data.users || [];
+  const response = await api.get("?action=getUsers");
+  return response.data || [];
 };
 
-// Add new user
+// ✅ Add new user
 export const addUser = async (user: any) => {
-  const response = await axios.post(BASE_URL, { action: "addUser", ...user });
+  const response = await api.post("?action=addUser", user);
   return response.data;
 };
 
-// Update user
+// ✅ Update user
 export const updateUser = async (user: any) => {
-  const response = await axios.post(BASE_URL, { action: "updateUser", ...user });
+  const response = await api.post("?action=updateUser", user);
   return response.data;
 };
 
-// Delete user
+// ✅ Delete user
 export const deleteUser = async (id: number) => {
-  const response = await axios.post(BASE_URL, { action: "deleteUser", id });
+  const response = await api.post("?action=deleteUser", { id });
   return response.data;
 };
 
-// Add transaction
+// ✅ Add transaction
 export const addTransaction = async (txn: any) => {
-  const response = await axios.post(BASE_URL, { action: "addTransaction", ...txn });
+  const response = await api.post("?action=addTransaction", txn);
   return response.data;
 };
 
+// ✅ Login user
 export const loginUser = async (data: { usernameOrEmail: string; password: string }) => {
-  const response = await axios.post(BASE_URL, { action: "login", ...data });
+  const response = await api.post("?action=login", data);
   return response.data;
 };
 
-
-// Update transaction
+// ✅ Update transaction
 export const updateTransaction = async (txn: any) => {
-  const response = await axios.post(BASE_URL, { action: "updateTransaction", ...txn });
+  const response = await api.post("?action=updateTransaction", txn);
   return response.data;
 };
 
-// Delete transaction
+// ✅ Delete transaction
 export const deleteTransaction = async (id: number) => {
-  const response = await axios.post(BASE_URL, { action: "deleteTransaction", id });
+  const response = await api.post("?action=deleteTransaction", { transaction_id: id });
   return response.data;
 };
