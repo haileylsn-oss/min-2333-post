@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         {/* Left: Logo + FDC Image */}
         <div className="flex flex-col space-x-4">
           <Link to="/">
-            <img src={logo} alt="Logo" className=" w-[300px]" />
+            <img src={logo} alt="Logo" className="w-[150px]" />
           </Link>
          
         </div>
@@ -36,8 +36,13 @@ const Header: React.FC = () => {
         {/* Right: Button & Hamburger Menu */}
         <div className="flex items-center gap-4">
           <Link to="/login">
-            <button className="border-4 text-[10px] border-red-800 px-4 py-2 rounded-full">
-              LOG-IN
+            <button className="bg-red-500 px-3 py-2 rounded text-white hover:bg-black hover:border-2 hover:border-red-500">
+              Log In
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-red-500 px-3 py-2 rounded text-white hover:bg-black hover:border-2 hover:border-red-500">
+              Register
             </button>
           </Link>
           <button

@@ -1,83 +1,90 @@
-import fc from '../assets/fdic.png';
-import cd from '../assets/ehl.png';
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { Facebook, Twitter, Youtube, Linkedin } from "lucide-react";
+import Certificate from "../assets/cert.png"; // replace with your actual certificate image
+import Logo from "../assets/logo.png"; // replace with your logo
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-red-800 text-white py-10">
-      <div className="container mx-auto flex flex-wrap gap-3 justify-evenly">
-        {/* Company Info */}
+    <footer className="bg-gray-900 text-gray-300 py-12">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+        {/* Logo + Description */}
         <div>
-          <p className="text-sm leading-relaxed w-[400px]">
-            At CKT Reserved and Trust Bank, we believe in building a brighter financial future together. We offer personalized financial solutions, 
-            unwavering support, and transformational—not just transactional—banking. Our mission is to help every member of our community grow and thrive. 
-            Experience a banking partner who truly cares about your journey and success.
+          <img src={Logo} alt="Logo" className="w-[150px] mb-4" />
+          <p className="text-sm leading-relaxed">
+            We strive to create value for our clients and employees while
+            adhering to principles of excellence and trust.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Company Links */}
         <div>
-          <h3 className="text-lg font-semibold uppercase">Quicklinks</h3>
-          <ul className="mt-2 space-y-2 text-gray-200 text-sm">
-            <li>Personal Banking</li>
-            <li>Business Banking</li>
-            <li>Loans & Mortgages</li>
-            <li>Security Center</li>
-            <li>News</li>
-            <li>Financial Literacy</li>
-            <li>About</li>
-            <li>Contact Us</li>
-            <li>Careers</li>
+          <h3 className="font-bold text-white mb-4">Our Company</h3>
+          <ul className="space-y-2 text-sm">
+            <li><a href="#" className="hover:text-white">About Us</a></li>
+            <li><a href="#" className="hover:text-white">Help Center</a></li>
+            <li><a href="#" className="hover:text-white">Career</a></li>
+            <li><a href="#" className="hover:text-white">Investment Plans</a></li>
+            <li><a href="#" className="hover:text-white">Contact Us</a></li>
           </ul>
         </div>
 
-        {/* Social Media & Logos */}
-        <div className="flex flex-col md:items-end">
-          <h3 className="text-lg font-semibold uppercase">Social Media</h3>
-          <div className="mt-2 flex space-x-4">
-            <a href="#" className="bg-white p-2 rounded-full text-red-800 hover:opacity-75">
-              <FaFacebookF size={20} />
+        {/* Certificate */}
+       <div className="flex flex-col items-center justify-center">
+          <h3 className="font-bold text-white mb-4">Certificate</h3>
+      <a href={Certificate} target="_blank" rel="noopener noreferrer">
+        <img
+          src={Certificate}
+          alt="Certificate"
+          className="w-64 h-auto rounded-lg shadow-md cursor-pointer hover:opacity-80"
+        />
+      </a>
+    </div>
+
+        {/* Newsletter */}
+        <div>
+          <h3 className="font-bold text-white mb-4">Newsletter</h3>
+          <p className="text-sm mb-4">
+            Join our subscribers list to get the latest news and special offers.
+          </p>
+          <form className="flex mb-4">
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full px-3 py-2 rounded-l-md bg-transparent border border-gray-600 focus:outline-none focus:ring-1 focus:ring-red-600"
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 bg-red-600 text-white rounded-r-md font-semibold hover:bg-red-700"
+            >
+              SUBSCRIBE
+            </button>
+          </form>
+          <div className="flex gap-3">
+            <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
+              <Facebook size={18} />
             </a>
-            <a href="#" className="bg-white p-2 rounded-full text-red-800 hover:opacity-75">
-              <FaLinkedinIn size={20} />
+            <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
+              <Twitter size={18} />
+            </a>
+            <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
+              <Youtube size={18} />
+            </a>
+            <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
+              <Linkedin size={18} />
             </a>
           </div>
         </div>
-
-        {/* Logos */}
-        <div className="mt-6 flex space-x-4">
-          <img src={fc} alt="FDIC Member" className="h-8" />
-          <img src={cd} alt="Equal Housing Lender" className="h-8" />
-        </div>
       </div>
 
-      {/* Disclaimer */}
-      <div className="mt-10 px-6 text-gray-300 text-xs text-center max-w-5xl mx-auto leading-relaxed">
-        Important Information: CKT Reserved and Trust Bank will never ask for personal information such as account numbers or passwords via email. 
-        Be cautious of emails requesting you to download programs—CKT Reserved and Trust Bank will never make such a request. 
-       Do not respond to messages asking you to update personal information 
-        online or by phone. Always use official contact information listed on our website. Online Banking links, ATM locators, and FDIC links 
-        lead to external websites. CKT Reserved and Trust Bank is not responsible for the content or privacy policies of external sites. 
-        The FDIC has issued alerts regarding fraudulent emails impersonating financial institutions. These scams often reference mergers, acquisitions, 
-        or closures to appear legitimate and steal your information.
-      </div>
-
-      {/* Legal Links & Copyright */}
-      <div className="mt-6 text-center m-auto text-sm">
-        <div className="text-white font-semibold">
-          <a href="#" className="hover:underline">USA Patriot Act</a> |
-          <a href="#" className="hover:underline">Terms of Use</a> |
-          <a href="#" className="hover:underline">Privacy Policy</a> |
-          <a href="#" className="hover:underline">Digital Privacy Statement</a>
-        </div>
-        <div className="mt-2 text-gray-300 text-xs text-center">
-          Copyright © 2025 CKT Reserved and Trust Bank. All Rights Reserved.
-          <br />
-          Website Design and Development by <span className="font-semibold">VIEO Design</span>
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700 bg-black mt-12 pt-6 text-center text-sm text-gray-400">
+        © Copyright 2018{" "}
+        <span className="font-semibold text-white">AlphaFlow Assets Partners</span>. All Rights Reserved.
+        <div className="mt-2 flex justify-center gap-6 text-gray-400">
+          <a href="#" className="hover:text-white">Terms</a>
+          <a href="#" className="hover:text-white">Login</a>
+          <a href="#" className="hover:text-white">Support</a>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

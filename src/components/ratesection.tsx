@@ -1,88 +1,72 @@
+import React from "react";
+import { Briefcase, DollarSign, ShieldCheck, PieChart } from "lucide-react";
+import { motion } from "framer-motion";
 
-import womanImage from '../assets/Homepage-Rate-Cards.webp'; // Replace with actual path
-
-const rates = [
+const services = [
   {
-    title: 'VISA',
-    rateType: 'VARIABLE APR',
-    rateValue: '11.99%',
-    subLabel: 'AS LOW AS',
-    footer: 'LEARN MORE',
-    icon: '💳', // Replace with actual icon or component
+    icon: <DollarSign className="w-10 h-10 text-red-600" />,
+    title: "Investment Planning",
+    desc: "As a lifetime business partner, Truenorth Assets Partners is committed in helping investors maximize profits by giving the upper-hand on increasing capital value with early detection of profitable trends.",
   },
   {
-    title: 'AUTO',
-    rateType: 'APR',
-    rateValue: '5.69%',
-    subLabel: 'AS LOW AS',
-    footer: 'LEARN MORE',
-    icon: '🚗',
+    icon: <Briefcase className="w-10 h-10 text-red-600" />,
+    title: "Markets Research",
+    desc: "Our analysts and core-traders are experts with extensive experience in the field and know the signals and swings in the market in depth.",
   },
   {
-    title: 'PERSONAL PROMO CDS',
-    rateType: 'APY',
-    rateValue: '4.30%',
-    subLabel: 'AS HIGH AS',
-    footer: 'LEARN MORE',
-    icon: '💼',
+    icon: <ShieldCheck className="w-10 h-10 text-red-600" />,
+    title: "Reliable Protection",
+    desc: "Our unique strategy of investment guarantees a minimal level of financial risks and a prudent protection of funds against all odds.",
   },
   {
-    title: 'HIGH YIELD ONLINE SAVINGS',
-    rateType: 'APY',
-    rateValue: '3.55%',
-    subLabel: 'AS HIGH AS',
-    footer: 'LEARN MORE',
-    icon: '💰',
+    icon: <PieChart className="w-10 h-10 text-red-600" />,
+    title: "Highly Reliable",
+    desc: "We are trusted by a huge number of people. We are working hard constantly to improve the level of our security system and minimize possible risks.",
   },
 ];
 
-export default function RatesSection() {
+export default function RateSection() {
   return (
-    <section className="bg-white py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-10">
-        {/* Left image */}
-        <div className="flex-1">
-          <img
-            src={womanImage}
-            alt="Woman using credit card"
-            className="rounded-xl object-cover w-full"
-          />
+    <div className="py-16 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Section */}
+        <div className="bg-white shadow-lg rounded-2xl p-8 border border-gray-100">
+          <p className="text-2xl font-semibold text-red-600 mb-2">WHAT WE DO</p>
+          <h2 className="text-3xl font-bold mb-6">Our Services</h2>
+
+          <div className="space-y-4">
+            <button className="flex items-center justify-between w-full px-4 py-3 rounded-lg bg-gray-900 text-white font-medium shadow-md hover:scale-[1.02] transition-transform">
+              <div className="flex items-center gap-3">
+                <Briefcase className="w-5 h-5" />
+                Consulting services
+              </div>
+            </button>
+
+            <button className="flex items-center justify-between w-full px-4 py-3 rounded-lg border font-medium hover:bg-gray-100 transition">
+              <div className="flex items-center gap-3">
+                <DollarSign className="w-5 h-5" />
+                Investment services
+              </div>
+            </button>
+          </div>
         </div>
 
-        {/* Right grid */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {rates.map((item, idx) => (
-            <div
-              key={idx}
-              className={`p-6 rounded-xl border shadow-sm hover:shadow-md transition duration-300 ${
-                idx === 0 ? 'bg-green-700 text-white' : 'bg-gray-100 text-gray-800'
-              } hover:border-red-600 hover:text-red-800 cursor-pointer`}
+        {/* Right Section */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex flex-col gap-3 bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-xl transition"
             >
-              <div className="text-lg font-semibold mb-2 flex items-center gap-2">
-                <span>{item.icon}</span> <span>{item.title}</span>
-              </div>
-              <div className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-300">
-                {item.subLabel}
-              </div>
-              <div className="text-4xl font-bold my-2">{item.rateValue}</div>
-              <div className="text-sm uppercase mb-4">{item.rateType}</div>
-              <button className="text-sm font-bold hover:underline flex items-center gap-1">
-                {item.footer} <span>&rarr;</span>
-              </button>
-            </div>
+              {service.icon}
+              <h3 className="font-bold text-lg">{service.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>
-
-      {/* Footer note */}
-      <div className="text-sm text-center text-gray-600 mt-10">
-        <div className="flex justify-center items-center gap-2 text-red-800 font-semibold">
-          <span>🕒</span> RATES UPDATED DAILY
-        </div>
-        <p className="mt-1 text-gray-500 text-xs">
-          APR = Annual Percentage Rate &nbsp;&nbsp;&nbsp; APY = Annual Percentage Yield
-        </p>
-      </div>
-    </section>
+    </div>
   );
 }
