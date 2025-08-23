@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Briefcase, DollarSign, ShieldCheck, PieChart } from "lucide-react";
 import { motion } from "framer-motion";
 
