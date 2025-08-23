@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Youtube, Linkedin } from "lucide-react";
+import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import Certificate from "../assets/cert.png"; // replace with your actual certificate image
 import Logo from "../assets/logo.png"; // replace with your logo
 
@@ -28,16 +28,16 @@ export default function Footer() {
         </div>
 
         {/* Certificate */}
-       <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <h3 className="font-bold text-white mb-4">Certificate</h3>
-      <a href={Certificate} target="_blank" rel="noopener noreferrer">
-        <img
-          src={Certificate}
-          alt="Certificate"
-          className="w-64 h-auto rounded-lg shadow-md cursor-pointer hover:opacity-80"
-        />
-      </a>
-    </div>
+          <a href={Certificate} target="_blank" rel="noopener noreferrer">
+            <img
+              src={Certificate}
+              alt="Certificate"
+              className="w-64 h-auto rounded-lg shadow-md cursor-pointer hover:opacity-80"
+            />
+          </a>
+        </div>
 
         {/* Newsletter */}
         <div>
@@ -60,16 +60,16 @@ export default function Footer() {
           </form>
           <div className="flex gap-3">
             <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
-              <Facebook size={18} />
+              <FaFacebookF size={18} />
             </a>
             <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
-              <Twitter size={18} />
+              <FaTwitter size={18} />
             </a>
             <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
-              <Youtube size={18} />
+              <FaYoutube size={18} />
             </a>
             <a href="#" className="p-2 bg-gray-800 rounded-md hover:bg-gray-700">
-              <Linkedin size={18} />
+              <FaLinkedinIn size={18} />
             </a>
           </div>
         </div>
